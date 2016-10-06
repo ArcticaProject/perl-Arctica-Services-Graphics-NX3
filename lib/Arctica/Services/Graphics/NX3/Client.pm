@@ -57,11 +57,9 @@
 # Copyright (C) 2015-2016 Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
 #
 ################################################################################
-package Arctica::Services::Graphics::NX3::Version;
+package Arctica::Services::Graphics::NX3::Client;
 use strict;
 
-use vars qw[$VERSION];
-
-$VERSION              = '0.0.0.1';
+use Arctica::Core::eventInit qw( genARandom BugOUT );
 
 1;

@@ -14,16 +14,87 @@ Vcs-Git: https://github.com/ArcticaProject/perl-Arctica-Core
 Vcs-Browser: https://github.com/ArcticaProject/perl-Arctica-Core
 Standards-Version: 3.9.8
 
-Package: libarctica-services-graphics-nx3-perl
+Package: libarctica-services-graphics-nx3-server-perl
 Architecture: all
 Depends:
  ${perl:Depends},
  ${misc:Depends},
-Description: NXv3 Graphics Service for the Arctica Framework
+ libarctica-services-graphics-nx3-common-perl (=${binary:Version}),
+Description: NXv3 Graphics Service for the Arctica Framework (server part)
  The Arctica Project brings forth a remote computing framework of
  enterprise grade and quality. The Arctica Framework is a highly
  modularized and thus pluggable for developing all sorts of remote
  services.
  .
- Arctica Services Graphics NX3 provide remote graphical sessions
- in desktop and rootless session mode. 
+ Arctica Services Graphics NX3 provide remote graphical sessions in
+ desktop, seamless and shadow session mode.
+ .
+ This package provides the server-side part of this service.
+
+Package: libarctica-services-graphics-nx3-client-perl
+Architecture: all
+Depends:
+ ${perl:Depends},
+ ${misc:Depends},
+ libarctica-services-graphics-nx3-common-perl (=${binary:Version}),
+Description: NXv3 Graphics Service for the Arctica Framework (client part)
+ The Arctica Project brings forth a remote computing framework of
+ enterprise grade and quality. The Arctica Framework is a highly
+ modularized and thus pluggable for developing all sorts of remote
+ services.
+ .
+ Arctica Services Graphics NX3 provide remote graphical sessions in
+ desktop, seamless and shadow session mode.
+ .
+ This package provides the client-side part of this service.
+
+Package: libarctica-services-graphics-nx3-common-perl
+Architecture: all
+Depends:
+ ${perl:Depends},
+ ${misc:Depends},
+Description: NXv3 Graphics Service for the Arctica Framework (client part)
+ The Arctica Project brings forth a remote computing framework of
+ enterprise grade and quality. The Arctica Framework is a highly
+ modularized and thus pluggable for developing all sorts of remote
+ services.
+ .
+ Arctica Services Graphics NX3 provide remote graphical sessions in
+ desktop, seamless and shadow session mode.
+ .
+ This package provides code that is common to the server-side and
+ client-side module.
+
+Package: arctica-services-graphics-nx3-server-scripts
+Architecture: all
+Depends:
+ ${perl:Depends},
+ ${misc:Depends},
+ libarctica-services-graphics-nx3-server-perl (=${binary:Version}),
+Description: NXv3 Graphics Service for the Arctica Framework (server test scripts)
+ The Arctica Project brings forth a remote computing framework of
+ enterprise grade and quality. The Arctica Framework is a highly
+ modularized and thus pluggable for developing all sorts of remote
+ services.
+ .
+ Arctica Services Graphics NX3 provide remote graphical sessions in
+ desktop, seamless and shadow session mode.
+ .
+ This package provides a set of server-side test scripts.
+
+Package: arctica-services-graphics-nx3-client-scripts
+Architecture: all
+Depends:
+ ${perl:Depends},
+ ${misc:Depends},
+ libarctica-services-graphics-nx3-client-perl (=${binary:Version}),
+Description: NXv3 Graphics Service for the Arctica Framework (client test scripts)
+ The Arctica Project brings forth a remote computing framework of
+ enterprise grade and quality. The Arctica Framework is a highly
+ modularized and thus pluggable for developing all sorts of remote
+ services.
+ .
+ Arctica Services Graphics NX3 provide remote graphical sessions in
+ desktop, seamless and shadow session mode.
+ .
+ This package provides a set of client-side test scripts.

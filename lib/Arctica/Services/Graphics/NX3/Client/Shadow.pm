@@ -13,7 +13,7 @@
 #
 ################################################################################
 #
-# Copyright (C) 2015-2016 The Arctica Project
+# Copyright (C) 2015-2016 The Arctica Project 
 # http://http://arctica-project.org/
 #
 # This code is dual licensed: strictly GPL-2 or AGPL-3+
@@ -57,11 +57,9 @@
 # Copyright (C) 2015-2016 Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
 #
 ################################################################################
-package Arctica::Services::Graphics::NX3::Version;
+package Arctica::Services::Graphics::NX3::Client::Shadow;
 use strict;
 
-use vars qw[$VERSION];
-
-$VERSION              = '0.0.0.1';
+use Arctica::Core::eventInit qw( BugOUT );
 
 1;

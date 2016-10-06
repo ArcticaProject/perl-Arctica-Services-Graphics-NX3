@@ -13,7 +13,7 @@
 #
 ################################################################################
 #
-# Copyright (C) 2015-2016 The Arctica Project
+# Copyright (C) 2015-2016 The Arctica Project 
 # http://http://arctica-project.org/
 #
 # This code is dual licensed: strictly GPL-2 or AGPL-3+
@@ -57,11 +57,72 @@
 # Copyright (C) 2015-2016 Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
 #
 ################################################################################
-package Arctica::Services::Graphics::NX3::Version;
+package Arctica::Services::Graphics::NX3::Server::Desktop;
 use strict;
 
-use vars qw[$VERSION];
+use Arctica::Core::eventInit qw( BugOUT );
 
-$VERSION              = '0.0.0.1';
+use Arctica::Services::Graphics::NX3::Server;
+
+sub new {
+
+    BugOUT(9,"NX3::Server::Desktop new->ENTER");
+
+    my $class_name = $_[0];# Be EXPLICIT!! DON'T SHIFT OR "@_";
+    my $arctica_core_object = $_[1];
+
+    my $self = Arctica::Services::Graphics::NX3::Server::new(@_);
+
+    # START
+    $self->{'_start'} = \&_start;
+
+    # STOP
+    $self->{'_stop'} = \&_stop;
+
+    # RESUME
+    $self->{'_resume'} = \&_resume;
+
+    # SUSPEND
+    $self->{'_suspend'} = \&_suspend;
+
+    # RECONFIGURE
+    $self->{'_reconfigure'} = \&_reconfigure;
+
+    bless($self, $class_name);
+
+    BugOUT(9,"NX3::Server::Desktop new->DONE");
+
+    return $self;
+}
+
+sub start {
+
+    Arctica::Services::Graphics::NX3::Server::start(@_);
+
+}
+
+sub stop {
+
+    Arctica::Services::Graphics::NX3::Server::stop(@_);
+
+}
+
+sub resume {
+
+    Arctica::Services::Graphics::NX3::Server::resume(@_);
+
+}
+
+sub suspend {
+
+    Arctica::Services::Graphics::NX3::Server::suspend(@_);
+
+}
+
+sub reconfigure {
+
+    Arctica::Services::Graphics::NX3::Server::reconfigure(@_);
+
+}
 
 1;

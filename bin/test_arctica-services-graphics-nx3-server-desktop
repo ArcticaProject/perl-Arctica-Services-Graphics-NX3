@@ -1,3 +1,5 @@
+#!/usr/bin/perl -T
+
 ################################################################################
 #          _____ _
 #         |_   _| |_  ___
@@ -57,11 +59,24 @@
 # Copyright (C) 2015-2016 Mike Gabriel <mike.gabriel@das-netzwerkteam.de>
 #
 ################################################################################
-package Arctica::Services::Graphics::NX3::Version;
+
 use strict;
+use File::Basename;
+use Arctica::Services::Graphics::NX3::Version;
+use Arctica::Services::Graphics::NX3::Server::Desktop;
 
-use vars qw[$VERSION];
+my $ACO = Arctica::Core::eventInit->new({
+    app_name => basename($0),
+    app_class => 'arctica-service-testscript-server-desktop',
+    app_version=> '$Arctica::Services::Graphics::NX3::Version::VERSION'
+});
 
-$VERSION              = '0.0.0.1';
+my $NX3Server = Arctica::Services::Graphics::NX3::Server::Desktop->new($ACO,{
+    display		=>	":1",
+    disabled_extensions =>	["GLX","XFIXES"],
+    extra_options	=>	[],
+});
 
-1;
+$NX3Server->start();
+
+$ACO->{'Glib'}{'MainLoop'}->run;
